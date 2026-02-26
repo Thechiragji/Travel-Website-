@@ -1,0 +1,21 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      { "source": "/", "destination": "/index.html" },
+      { "source": "/menu", "destination": "/menu.html" },
+      { "source": "/about", "destination": "/about.html" },
+      { "source": "/reservations", "destination": "/reservations.html" },
+      { "source": "/contact", "destination": "/contact.html" },
+      { "source": "/blog", "destination": "/blog.html" },
+      { "source": "/admin", "destination": "/admin.html" }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
