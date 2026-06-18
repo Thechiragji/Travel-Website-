@@ -1,8 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  background: #f9fafb;
-  font-family: Arial, sans-serif;
-}
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #020617; }
+a { color: inherit; text-decoration: none; }
+.hero-shell { padding: 24px clamp(18px, 4vw, 64px) 70px; background: radial-gradient(circle at 20% 0%, rgba(20,184,166,.28), transparent 34%), radial-gradient(circle at 80% 10%, rgba(59,130,246,.24), transparent 30%), #020617; }
+.nav, .hero-grid, .section, .split { max-width: 1220px; margin: 0 auto; }
+.nav { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 0; }
+.brand { font-weight:800; letter-spacing:-.04em; font-size:22px; display:flex; align-items:center; gap:10px; }
+.brand span { display:grid; place-items:center; width:40px; height:40px; border-radius:14px; background:linear-gradient(135deg,#2dd4bf,#2563eb); color:white; font-size:14px; }
+.nav-links { display:flex; gap:26px; color:#cbd5e1; font-size:14px; }
+.hero-grid { display:grid; grid-template-columns: 1.05fr .95fr; gap:40px; align-items:center; padding-top:70px; }
+.eyebrow { color:#5eead4; text-transform:uppercase; letter-spacing:.16em; font-weight:800; font-size:12px; }
+h1 { font-size:clamp(44px,7vw,82px); line-height:.94; margin:14px 0 22px; letter-spacing:-.07em; }
+h2 { font-size:clamp(30px,4vw,48px); line-height:1; margin:8px 0 18px; letter-spacing:-.05em; }
+h3 { font-size:22px; margin:0 0 12px; letter-spacing:-.03em; }
+.hero-copy, .module p, .panel p { color:#cbd5e1; font-size:17px; line-height:1.7; }
+.actions, .marketplaces, .roles { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.primary, .secondary { border:0; border-radius:14px; padding:14px 20px; font-weight:800; cursor:pointer; }
+.primary { background:linear-gradient(135deg,#2dd4bf,#2563eb); color:white; box-shadow:0 18px 45px rgba(37,99,235,.25); }
+.secondary { background:rgba(255,255,255,.08); color:white; border:1px solid rgba(255,255,255,.14); }
+.small { padding:10px 14px; }
+.marketplaces { margin-top:28px; }.marketplaces span, .roles span { padding:9px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:#cbd5e1; background:rgba(255,255,255,.05); }
+.glass, .panel, .kpi, .module { border:1px solid rgba(148,163,184,.18); background:rgba(15,23,42,.72); box-shadow:0 24px 80px rgba(0,0,0,.32); backdrop-filter: blur(18px); }
+.dashboard-card { border-radius:32px; padding:24px; }.card-head { display:flex; justify-content:space-between; color:#cbd5e1; margin-bottom:22px; }
+.chart { height:170px; display:flex; gap:10px; align-items:end; padding:10px; border-radius:22px; background:rgba(2,6,23,.55); }
+.chart span { flex:1; border-radius:999px 999px 4px 4px; background:linear-gradient(180deg,#5eead4,#2563eb); min-width:10px; }
+.insight { margin-top:18px; border-radius:18px; padding:16px; background:rgba(20,184,166,.12); color:#ccfbf1; border:1px solid rgba(45,212,191,.22); }
+.section { padding:72px clamp(18px, 4vw, 64px); }.section-head { max-width:760px; }
+.kpi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }.kpi { border-radius:24px; padding:22px; }.kpi p { margin:0 0 10px; color:#94a3b8; }.kpi strong { display:block; font-size:30px; }.kpi span { color:#5eead4; font-weight:800; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:22px; }.panel, .module { border-radius:30px; padding:30px; }.upload-box { border:1.5px dashed rgba(94,234,212,.45); border-radius:24px; padding:32px; text-align:center; background:rgba(20,184,166,.08); }.upload-box div { font-size:42px; }
+.progress { position:relative; display:grid; grid-template-columns:1fr auto; gap:12px; margin:22px 0; color:#cbd5e1; }.progress i { grid-column:1/-1; height:10px; border-radius:999px; background:linear-gradient(90deg,#2dd4bf,#2563eb); }
+.module-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }.light { background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.04)); }
+@media (max-width: 860px) { .nav-links { display:none; } .hero-grid, .split, .kpi-grid, .module-grid { grid-template-columns:1fr; } .hero-grid { padding-top:36px; } }

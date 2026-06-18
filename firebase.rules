@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function role() { return request.auth.token.role; }
+    function admin() { return role() in ['super_admin', 'admin']; }
+    function accountant() { return role() in ['super_admin', 'admin', 'accountant']; }
+    match /users/{userId} { allow read: if signedIn() && (request.auth.uid == userId || admin()); allow write: if admin(); }
+    match /{collection}/{docId} {
+      allow read: if signedIn() && collection in ['orders','payments','refunds','settlements','products','gst_reports','profit_reports','subscriptions','alerts'];
+      allow create, update: if accountant() && collection in ['orders','payments','refunds','settlements','products','gst_reports','profit_reports','alerts'];
+      allow delete: if admin();
+    }
+  }
+}
+service firebase.storage {
+  match /b/{bucket}/o { match /uploads/{userId}/{allPaths=**} { allow read, write: if request.auth != null && (request.auth.uid == userId || request.auth.token.role in ['super_admin','admin','accountant']); } }
+}
